@@ -53,8 +53,7 @@ public class LegoSetServiceImpl implements LegoSetService {
 	}
 
 	private List<String> validateStandard(LegoSet legoSet) {
-		return validator.validate(legoSet).stream()
-				.map(v -> "'" + v.getInvalidValue() + "' - " + v.getMessage())
+		return validator.validate(legoSet).stream().map(v -> "'" + v.getInvalidValue() + "' - " + v.getMessage())
 				.collect(Collectors.toList());
 	}
 
@@ -88,17 +87,7 @@ public class LegoSetServiceImpl implements LegoSetService {
 
 	@Override
 	public SearchResultTo searchLegoSets(SearchCriteriaTo searchCriteria) {
-		// List<LegoSet> result =
-		// repo.findByLegoStatusAndLegoCondition(searchCriteria.getStatus(),
-		// searchCriteria.getCondition());
-
 		List<LegoSet> result = repo.findByLegoNameStartsWith(searchCriteria.getName());
-
-		// QueryResults<LegoSet> results = repo.searchLegoSets(searchCriteria);
-		// SearchResultTo searchResultTo = mapper.mapToSearchResult(results);
-		// if (searchResultTo.getLimit() == Long.MAX_VALUE) {
-		// searchResultTo.setLimit(searchCriteria.getPageSize());
-		// }
 
 		SearchResultTo searchResultTo = new SearchResultTo();
 		searchResultTo.setLegoSets(result.stream().map(legoSetMapper::mapToLegoSetTo).collect(Collectors.toList()));
