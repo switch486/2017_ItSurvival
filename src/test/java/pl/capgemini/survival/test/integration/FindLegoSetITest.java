@@ -17,8 +17,6 @@ import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import pl.capgemini.survival.common.to.LegoSetTo;
-import pl.capgemini.survival.common.typ.Condition;
-import pl.capgemini.survival.common.typ.Status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -37,18 +35,7 @@ public class FindLegoSetITest {
 	@Test
 	public void shouldFindLegoSet() {
 
-		// when
-		ResponseEntity<LegoSetTo> result = this.restTemplate.getForEntity(BASE_URL + "/1", LegoSetTo.class);
-
-		// then
-		assertThat(result.getStatusCode(), equalTo(HttpStatus.OK));
-		assertThat(result.getBody().getId(), equalTo(1L));
-		assertThat(result.getBody().getComment(), nullValue());
-		assertThat(result.getBody().getCondition(), equalTo(Condition.NEW));
-		assertThat(result.getBody().getExternallId(), equalTo("123"));
-		assertThat(result.getBody().getName(), equalTo("Star Wars"));
-		assertThat(result.getBody().getStatus(), equalTo(Status.WANTED));
-		assertThat(result.getBody().getVersion(), equalTo(0L));
+		throw new RuntimeException("Not implemented");
 	}
 
 	@Test
