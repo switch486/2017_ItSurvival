@@ -2,7 +2,6 @@ package pl.capgemini.survival.persistence.repo;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import pl.capgemini.survival.common.typ.Condition;
@@ -21,6 +20,5 @@ public interface LegoSetRepository extends CrudRepository<LegoSet, Long>, LegoSe
 	// nazwy zestawu
 	// Metoda findByLegoNameStartsWith
 
-	@Query("select ls from LegoSet ls where ls.legoName like ?1%")
 	List<LegoSet> findByLegoNameStartsWith(String legoName);
 }
