@@ -29,10 +29,6 @@ public class CreateLegoSetITest {
 
 	private static final String BASE_URL = "/survival/lego-sets";
 
-	// TODO TASK 3.2 - Mockowanie z uzyciem Argument Captors
-	// Metoda shouldCreateLegoSet
-	// Metoda shouldThrowsValidationExceptionForTooShortName
-
 	@Test
 	public void shouldCreateLegoSet() {
 		// given
